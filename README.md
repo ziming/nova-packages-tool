@@ -10,25 +10,21 @@ This library provides a versioning `laravel-nova` mixins dependency for 3rd part
 
 ## Why?
 
-`laravel-nova` may introduce breaking and none breaking improvements from time to time. To maintain compatibility all 3rd party packages should rebuild their packages each time Laravel Nova released a new version. 
+`laravel-nova` may introduce breaking and nonbreaking improvements from time to time. To maintain compatibility, all third-party packages should rebuild their packages each time Laravel Nova releases a new version. 
 
 By skipping this process and depending on the severity of the changes it may result in your application no longer working and you are locked to an older version and have to wait each affecting 3rd packages to update their code.
 
 ### Pros
 
 * `nova-kit/nova-packages-tool` reduces the maintaining hurdle for each 3rd party package utilizing `laravel-nova`.
-* The `dist` generated file will be reduced since 3rd party package is no longer required to build `laravel-nova` source code.
-
-### Cons
-
-* Each time Laravel Nova made a new release, you need to wait until `nova-kit/nova-packages-tool` make a new compatible release.
+* The `dist` generated file will be reduced since third-party package is no longer required to build `laravel-nova` source code.
 
 ## Installation
 
 To install through composer, run the following command from terminal:
 
 ```bash 
-composer require "nova-kit/nova-packages-tool:^1.0"
+composer require "nova-kit/nova-packages-tool"
 ```
 
 Next, make sure your application's `composer.json` contains the following command under `script.post-autoload-dump`:
@@ -79,12 +75,3 @@ Nova.$on('nova-theme-switched', ({ theme, element }) => {
   }
 })
 ```
-
-## Nightly Build 
-
-Those who just can't wait for compatible release you have to option to use our nightly build by running the following command on your Laravel Nova application:
-
-```bash 
-composer require nova-kit/nova-packages-tool:"dev-next as 1.999.999"
-```
-
